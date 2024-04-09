@@ -15,33 +15,40 @@
 
 친구들의 이름을 담은 1차원 문자열 배열 friends 이번 달까지 친구들이 주고받은 선물 기록을 담은 1차원 문자열 배열 gifts가 매개변수로 주어집니다. 이때, 다음달에 가장 많은 선물을 받는 친구가 받을 선물의 수를 return 하도록 solution 함수를 완성해 주세요.
 
-제한사항
+## 제한사항
 2 ≤ friends의 길이 = 친구들의 수 ≤ 50
 friends의 원소는 친구의 이름을 의미하는 알파벳 소문자로 이루어진 길이가 10 이하인 문자열입니다.
 이름이 같은 친구는 없습니다.
 1 ≤ gifts의 길이 ≤ 10,000
 gifts의 원소는 "A B"형태의 문자열입니다. A는 선물을 준 친구의 이름을 B는 선물을 받은 친구의 이름을 의미하며 공백 하나로 구분됩니다.
 A와 B는 friends의 원소이며 A와 B가 같은 이름인 경우는 존재하지 않습니다.
-입출력 예
+
+## 입출력 예
 friends	gifts	result
 ["muzi", "ryan", "frodo", "neo"]	["muzi frodo", "muzi frodo", "ryan muzi", "ryan muzi", "ryan muzi", "frodo muzi", "frodo ryan", "neo muzi"]	2
 ["joy", "brad", "alessandro", "conan", "david"]	["alessandro brad", "alessandro joy", "alessandro conan", "david alessandro", "alessandro david"]	4
 ["a", "b", "c"]	["a b", "b a", "c a", "a c", "a c", "c a"]	0
-입출력 예 설명
-입출력 예 #1
+
+## 입출력 예 설명
+
+### 입출력 예 #1
 
 주고받은 선물과 선물 지수를 표로 나타내면 다음과 같습니다.
 
-↓준 사람 \ 받은 사람→	muzi	ryan	frodo	neo
-muzi	-	0	2	0
-ryan	3	-	0	0
-frodo	1	1	-	0
-neo	1	0	0	-
-이름	준 선물	받은 선물	선물 지수
-muzi	2	5	-3
-ryan	3	1	2
-frodo	2	2	0
-neo	1	0	1
+↓준 사람 \ 받은 사람→|muzi|ryan|frodo|neo
+----------
+muzi|-|0|2|0
+ryan|3|-|0|0
+frodo|1|1|-|0
+neo|1|0|0|-
+
+이름|준 선물|받은 선물|선물 지수
+---------
+muzi|2|5|-3
+ryan|3|1|2
+frodo|2|2|0
+neo|1|0|1
+
 muzi는 선물을 더 많이 줬던 frodo에게서 선물을 하나 받습니다.
 ryan은 선물을 더 많이 줬던 muzi에게서 선물을 하나 받고, 선물을 주고받지 않았던 neo보다 선물 지수가 커 선물을 하나 받습니다.
 frodo는 선물을 더 많이 줬던 ryan에게 선물을 하나 받습니다.
@@ -49,28 +56,32 @@ neo는 선물을 더 많이 줬던 muzi에게서 선물을 하나 받고, 선물
 
 다음달에 가장 선물을 많이 받는 사람은 ryan과 neo이고 2개의 선물을 받습니다. 따라서 2를 return 해야 합니다.
 
-입출력 예 #2
+### 입출력 예 #2
 
 주고받은 선물과 선물 지수를 표로 나타내면 다음과 같습니다.
 
-↓준 사람 \ 받은 사람→	joy	brad	alessandro	conan	david
-joy	-	0	0	0	0
-brad	0	-	0	0	0
-alessandro	1	1	-	1	1
-conan	0	0	0	-	0
-david	0	0	1	0	-
-이름	준 선물	받은 선물	선물 지수
-joy	0	1	-1
-brad	0	1	-1
-alessandro	4	1	3
-conan	0	1	-1
-david	1	1	0
+↓준 사람 \ 받은 사람→|joy|brad|alessandro|conan|david
+-------
+joy|-|0|0|0|0
+brad|0|-|0|0|0
+alessandro|1|1|-|1|1
+conan|0|0|0|-|0
+david|0|0|1|0|-
+
+이름|준 선물|받은 선물|선물 지수
+--------
+joy|0|1|-1
+brad|0|1|-1
+alessandro|4|1|3
+conan|0|1|-1
+david|1|1|0
+
 alessandro가 선물을 더 많이 줬던 joy, brad, conan에게서 선물을 3개 받습니다. 선물을 하나씩 주고받은 david보다 선물 지수가 커 선물을 하나 받습니다.
 david는 선물을 주고받지 않았던 joy, brad, conan보다 선물 지수가 커 다음 달에 선물을 3개 받습니다.
 joy, brad, conan은 선물을 받지 못합니다.
 
 다음달에 가장 선물을 많이 받는 사람은 alessandro이고 4개의 선물을 받습니다. 따라서 4를 return 해야 합니다.
 
-입출력 예 #3
+### 입출력 예 #3
 
 a와 b, a와 c, b와 c 사이에 서로 선물을 주고받은 수도 같고 세 사람의 선물 지수도 0으로 같아 다음 달엔 아무도 선물을 받지 못합니다. 따라서 0을 return 해야 합니다.
