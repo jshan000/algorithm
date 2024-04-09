@@ -24,10 +24,11 @@ gifts의 원소는 "A B"형태의 문자열입니다. A는 선물을 준 친구�
 A와 B는 friends의 원소이며 A와 B가 같은 이름인 경우는 존재하지 않습니다.
 
 ## 입출력 예
-friends	gifts	result
-["muzi", "ryan", "frodo", "neo"]	["muzi frodo", "muzi frodo", "ryan muzi", "ryan muzi", "ryan muzi", "frodo muzi", "frodo ryan", "neo muzi"]	2
-["joy", "brad", "alessandro", "conan", "david"]	["alessandro brad", "alessandro joy", "alessandro conan", "david alessandro", "alessandro david"]	4
-["a", "b", "c"]	["a b", "b a", "c a", "a c", "a c", "c a"]	0
+friends|gifts|result
+-|-|-
+["muzi", "ryan", "frodo", "neo"]|["muzi frodo", "muzi frodo", "ryan muzi", "ryan muzi", "ryan muzi", "frodo muzi", "frodo ryan", "neo muzi"]|2
+["joy", "brad", "alessandro", "conan", "david"]|["alessandro brad", "alessandro joy", "alessandro conan", "david alessandro", "alessandro david"]|4
+["a", "b", "c"]|["a b", "b a", "c a", "a c", "a c", "c a"]|0
 
 ## 입출력 예 설명
 
@@ -36,14 +37,14 @@ friends	gifts	result
 주고받은 선물과 선물 지수를 표로 나타내면 다음과 같습니다.
 
 ↓준 사람 \ 받은 사람→|muzi|ryan|frodo|neo
-----------
+--|-|-|-|-
 muzi|-|0|2|0
 ryan|3|-|0|0
 frodo|1|1|-|0
 neo|1|0|0|-
 
 이름|준 선물|받은 선물|선물 지수
----------
+--|--|--|---
 muzi|2|5|-3
 ryan|3|1|2
 frodo|2|2|0
@@ -60,21 +61,21 @@ neo는 선물을 더 많이 줬던 muzi에게서 선물을 하나 받고, 선물
 
 주고받은 선물과 선물 지수를 표로 나타내면 다음과 같습니다.
 
-↓준 사람 \ 받은 사람→|joy|brad|alessandro|conan|david
--------
-joy|-|0|0|0|0
-brad|0|-|0|0|0
-alessandro|1|1|-|1|1
-conan|0|0|0|-|0
-david|0|0|1|0|-
+|↓준 사람 \ 받은 사람→|joy|brad|alessandro|conan|david|
+|-|-|-|-|-|-|
+|joy|-|0|0|0|0|
+|brad|0|-|0|0|0|
+|alessandro|1|1|-|1|1|
+|conan|0|0|0|-|0|
+|david|0|0|1|0|-|
 
-이름|준 선물|받은 선물|선물 지수
---------
-joy|0|1|-1
-brad|0|1|-1
-alessandro|4|1|3
-conan|0|1|-1
-david|1|1|0
+|이름|준 선물|받은 선물|선물 지수|
+|-|-|-|-|
+|joy|0|1|-1|
+|brad|0|1|-1|
+|alessandro|4|1|3|
+|conan|0|1|-1|
+|david|1|1|0|
 
 alessandro가 선물을 더 많이 줬던 joy, brad, conan에게서 선물을 3개 받습니다. 선물을 하나씩 주고받은 david보다 선물 지수가 커 선물을 하나 받습니다.
 david는 선물을 주고받지 않았던 joy, brad, conan보다 선물 지수가 커 다음 달에 선물을 3개 받습니다.
