@@ -59,7 +59,7 @@ def solution(edges):
         pass
     else:
         answer[3]=count
-        
+    
     answer[3] = count
             
         
