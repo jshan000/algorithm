@@ -1,5 +1,5 @@
 def solution(edges):
-    answer = []
+    answer = [0,0,0,0]
     # a is start point, b is end point.
     # each point is graph except 1 point.
     # graph has 3 type, donut, bar, infinite.
@@ -35,10 +35,12 @@ def solution(edges):
         
     # check additional point
     count = 0
+    graph = 0
     candi = []
     for a,b in point.items():
         if(b > 2):
             answer[0] = a
+            graph = b
             break
         elif(b == 2):
             count += 1
@@ -47,27 +49,32 @@ def solution(edges):
     infi_p = []
     donut_p = []
     bar_p = []
-    
     # check infinite
-    if(count > 0):
-        answer[0], infi_p = isInfinite(edges,candi)
+    if(answer[0]==0 and count < 2):
+        answer[0] = a
+        answer[3] = 0
+    elif(answer[0]==0 and count >= 2):
+        # left over part of count is infinite graph
+        # it can be 1 or 2 because count == 2 (count is additional point's path)
+        pass
+    else:
+        answer[3]=count
         
-        count -= 1
     answer[3] = count
             
         
     print(point)
     return answer
 
-def isDonut(edges):
+
+def isDonut(edges, ls):
+    
     pass
+
 
 def isBar(edges):
     pass
 
-def isInfinite(edges, ls):
-    result = [0,[]]
-    return result
 
 edge = [[2, 3], [4, 3], [1, 1], [2, 1]]
 print(solution(edge))
